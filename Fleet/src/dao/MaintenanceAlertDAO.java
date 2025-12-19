@@ -94,3 +94,38 @@ public class MaintenanceAlertDAO {
         
         return false;
     }
+    
+    public boolean hasActiveAlert(String vehicleID) {
+        String query = "SELECT COUNT(*) as count FROM Maintenance_Alerts WHERE VehicleID = ?";
+        
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setString(1, vehicleID);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getInt("count") > 0;
+            }
+        } catch (Exception e) {
+            System.err.println("Error checking active alerts: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
+        return false;
+    }
+    
+    public void clearAlertsForVehicle(String vehicleID) {
+        String query = "DELETE FROM Maintenance_Alerts WHERE VehicleID = ?";
+        
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setString(1, vehicleID);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("Error clearing alerts: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
