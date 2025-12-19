@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import javax.swing.*;
 import ui.MainFrame;
-
+import db.DBConnection;
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() ->
