@@ -1,10 +1,11 @@
 package ui;
 
 import dao.VehicleDAO;
+import pdf.ReportGenerator;
+
+import javax.swing.*;
 import java.awt.*;
 import java.util.List;
-import javax.swing.*;
-import pdf.ReportGenerator;
 
 public class ReportPanel extends JPanel {
 
@@ -32,7 +33,6 @@ public class ReportPanel extends JPanel {
         JLabel itemsDesc = new JLabel("<html>All items with:<br>• ID<br>• Name<br>• Price</html>");
         itemsDesc.setBounds(15, 25, 190, 60);
         itemsPanel.add(itemsDesc);
-
         JButton generateItems = new JButton("Generate Items PDF");
         generateItems.setBounds(15, 95, 180, 35);
         generateItems.setBackground(new Color(52, 152, 219));
