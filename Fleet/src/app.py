@@ -16,6 +16,3 @@ with open("INPUT.csv", newline='', encoding='utf-8') as infile, \
             writer.writerow(row)
         except Exception as e:
                 continue
-
-
-        
