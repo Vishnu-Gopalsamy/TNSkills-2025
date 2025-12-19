@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
         tabs.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 12));
         tabs.add("⚙ Items", new MaintenancePanel());
+        tabs.add("⚙ Items", new ReportPanel());
 
         add(tabs);
     }
