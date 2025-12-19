@@ -2,7 +2,7 @@ import csv
 import datetime
 cleared = []
 
-with open("INPUT.csv", newline='', encoding='utf-8') as infile, \
+with open("Input.csv", newline='', encoding='utf-8') as infile, \
          open("Output.csv", 'w', newline='', encoding='utf-8') as outfile:
     reader= csv.DictReader(infile)
     writer= csv.DictWriter(outfile, fieldnames=reader.fieldnames)

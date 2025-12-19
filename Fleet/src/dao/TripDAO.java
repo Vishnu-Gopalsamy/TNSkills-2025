@@ -13,7 +13,7 @@ public class TripDAO {
     public List<Trip> getAllTrips() {
         List<Trip> trips = new ArrayList<>();
         String query = "SELECT * FROM Trips ORDER BY StartDate DESC";
-        
+       
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {

@@ -1,12 +1,11 @@
 package dao;
 
 import db.DBConnection;
-import model.MaintenanceAlert;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import model.MaintenanceAlert;
 
 public class MaintenanceAlertDAO {
     
@@ -56,7 +55,6 @@ public class MaintenanceAlertDAO {
             System.err.println("Error retrieving alerts for vehicle: " + e.getMessage());
             e.printStackTrace();
         }
-        
         return alerts;
     }
     
@@ -78,13 +76,11 @@ public class MaintenanceAlertDAO {
         
         return false;
     }
-    
     public boolean deleteAlert(int alertID) {
         String query = "DELETE FROM Maintenance_Alerts WHERE AlertID = ?";
         
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            
             pstmt.setInt(1, alertID);
             return pstmt.executeUpdate() > 0;
         } catch (Exception e) {
@@ -94,7 +90,6 @@ public class MaintenanceAlertDAO {
         
         return false;
     }
-    
     public boolean hasActiveAlert(String vehicleID) {
         String query = "SELECT COUNT(*) as count FROM Maintenance_Alerts WHERE VehicleID = ?";
         
@@ -113,11 +108,9 @@ public class MaintenanceAlertDAO {
         }
         
         return false;
-    }
-    
+    } 
     public void clearAlertsForVehicle(String vehicleID) {
         String query = "DELETE FROM Maintenance_Alerts WHERE VehicleID = ?";
-        
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             

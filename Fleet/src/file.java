@@ -1,8 +1,12 @@
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 public class file{
-    
-
+    public static void main(String[] args) {
+        try{
+            FileInputStream reader = new FileInputStream("Input.csv");
+    }
+        catch(Exception e){
+            System.out.println("Execption");
+    }
+    }
     }
